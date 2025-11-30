@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productboard Widget - Zoho Cliq</title>
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+            --color-bg-1: rgba(59, 130, 246, 0.08);
+            --color-bg-2: rgba(245, 158, 11, 0.08);
+            --color-bg-3: rgba(34, 197, 94, 0.08);
+            --color-bg-4: rgba(239, 68, 68, 0.08);
+            --color-bg-5: rgba(147, 51, 234, 0.08);
+            --color-bg-6: rgba(249, 115, 22, 0.08);
+            --color-bg-7: rgba(236, 72, 153, 0.08);
+            --color-bg-8: rgba(6, 182, 212, 0.08);
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+            --focus-ring: 0 0 0 3px var(--color-focus-ring);
+            --focus-outline: 2px solid var(--color-primary);
+            --status-bg-opacity: 0.15;
+            --status-border-opacity: 0.25;
+            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --space-4: 4px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: var(--line-height-normal);
+            font-size: var(--font-size-base);
+        }
+
+        .widget-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-20);
+        }
+
+        .widget-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal-700) 100%);
+            color: var(--color-white);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-24);
+            box-shadow: var(--shadow-md);
+        }
+
+        .widget-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-8);
+        }
+
+        .widget-subtitle {
+            font-size: var(--font-size-base);
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            gap: var(--space-8);
+            margin-bottom: var(--space-24);
+            border-bottom: 2px solid var(--color-border);
+            overflow-x: auto;
+            padding-bottom: var(--space-8);
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: var(--space-12) var(--space-20);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            border-radius: var(--radius-base) var(--radius-base) 0 0;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            background: var(--color-secondary);
+            color: var(--color-text);
+        }
+
+        .tab-button.active {
+            color: var(--color-primary);
+            background: var(--color-bg-8);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--space-16);
+            margin-bottom: var(--space-24);
+        }
+
+        .stat-card {
+            background: var(--color-surface);
+            padding: var(--space-20);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-icon {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--space-8);
+        }
+
+        .stat-value {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-16);
+            margin-bottom: var(--space-24);
+        }
+
+        .action-btn {
+            background: var(--color-surface);
+            border: 2px solid var(--color-card-border);
+            padding: var(--space-20);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+        }
+
+        .action-btn:hover {
+            border-color: var(--color-primary);
+            background: var(--color-bg-8);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .action-btn.active {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            border-color: var(--color-primary);
+        }
+
+        .content-section {
+            background: var(--color-surface);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+            margin-bottom: var(--space-20);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-16);
+            color: var(--color-text);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-16);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-8);
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-sm);
+            color: var(--color-text);
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: var(--space-12);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-family: var(--font-family-base);
+            color: var(--color-text);
+            background: var(--color-background);
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: var(--focus-ring);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn {
+            padding: var(--space-12) var(--space-24);
+            border: none;
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .btn-primary:active {
+            background: var(--color-primary-active);
+        }
+
+        .btn-secondary {
+            background: var(--color-secondary);
+            color: var(--color-text);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-secondary-hover);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-12);
+        }
+
+        .feature-item {
+            background: var(--color-background);
+            padding: var(--space-16);
+            border-radius: var(--radius-base);
+            border: 1px solid var(--color-card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-info {
+            flex: 1;
+        }
+
+        .feature-name {
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-4);
+            color: var(--color-text);
+        }
+
+        .feature-meta {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            display: flex;
+            gap: var(--space-16);
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4) var(--space-12);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .status-new {
+            background: var(--color-bg-1);
+            color: #1d4ed8;
+        }
+
+        .status-planned {
+            background: var(--color-bg-5);
+            color: #6b21a8;
+        }
+
+        .status-in_progress {
+            background: var(--color-bg-6);
+            color: var(--color-orange-500);
+        }
+
+        .status-completed {
+            background: var(--color-bg-3);
+            color: var(--color-success);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--color-surface);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            animation: modalSlideIn 0.3s;
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-24);
+        }
+
+        .modal-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: var(--font-size-2xl);
+            cursor: pointer;
+            color: var(--color-text-secondary);
+            padding: var(--space-4);
+        }
+
+        .close-btn:hover {
+            color: var(--color-text);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: var(--space-24);
+            right: var(--space-24);
+            background: var(--color-surface);
+            padding: var(--space-16) var(--space-24);
+            border-radius: var(--radius-base);
+            box-shadow: var(--shadow-lg);
+            border-left: 4px solid var(--color-success);
+            display: none;
+            align-items: center;
+            gap: var(--space-12);
+            z-index: 2000;
+            animation: slideInRight 0.3s;
+        }
+
+        .toast.active {
+            display: flex;
+        }
+
+        .toast.error {
+            border-left-color: var(--color-error);
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(400px); }
+            to { transform: translateX(0); }
+        }
+
+        .search-bar {
+            position: relative;
+            margin-bottom: var(--space-20);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: var(--space-12) var(--space-12) var(--space-12) var(--space-32);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            background: var(--color-background);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: var(--space-12);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--color-secondary);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-top: var(--space-8);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--color-primary);
+            transition: width 0.3s;
+        }
+
+        .spinner {
+            border: 3px solid var(--color-secondary);
+            border-top: 3px solid var(--color-primary);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .command-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-12);
+        }
+
+        .command-item {
+            background: var(--color-background);
+            padding: var(--space-16);
+            border-radius: var(--radius-base);
+            border: 1px solid var(--color-card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .command-info {
+            flex: 1;
+        }
+
+        .command-name {
+            font-family: monospace;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .command-desc {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        .copy-btn {
+            padding: var(--space-8) var(--space-16);
+            background: var(--color-secondary);
+            border: none;
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--color-secondary-hover);
+        }
+
+        .roadmap-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-20);
+        }
+
+        .roadmap-card {
+            background: var(--color-background);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-card-border);
+            text-align: center;
+        }
+
+        .roadmap-icon {
+            font-size: 48px;
+            margin-bottom: var(--space-16);
+        }
+
+        .roadmap-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-12);
+        }
+
+        .roadmap-desc {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-20);
+            font-size: var(--font-size-sm);
+        }
+
+        .settings-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-16);
+            border-bottom: 1px solid var(--color-card-border);
+        }
+
+        .settings-label {
+            font-weight: var(--font-weight-medium);
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 24px;
+            background: var(--color-secondary);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle-switch.active {
+            background: var(--color-primary);
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: var(--color-white);
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(24px);
+        }
+
+        .timestamp {
+            font-size: var(--font-size-xs);
+            color: var(--color-text-secondary);
+            text-align: center;
+            margin-top: var(--space-24);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: var(--space-32);
+            color: var(--color-text-secondary);
+        }
+
+        .empty-icon {
+            font-size: 64px;
+            margin-bottom: var(--space-16);
+        }
+
+        @media (max-width: 768px) {
+            .widget-container {
+                padding: var(--space-12);
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .filters {
+            display: flex;
+            gap: var(--space-12);
+            margin-bottom: var(--space-20);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: var(--space-8) var(--space-16);
+            border: 1px solid var(--color-border);
+            background: var(--color-surface);
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--color-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            border-color: var(--color-primary);
+        }
+
+        .message-action-buttons {
+            display: flex;
+            gap: var(--space-12);
+            margin-bottom: var(--space-20);
+        }
+
+        .msg-action-btn {
+            flex: 1;
+            padding: var(--space-16);
+            border: 2px solid var(--color-card-border);
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-semibold);
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .msg-action-btn:hover {
+            border-color: var(--color-primary);
+            background: var(--color-bg-8);
+            transform: translateY(-2px);
+        }
+
+        .release-item {
+            background: var(--color-background);
+            padding: var(--space-16);
+            border-radius: var(--radius-base);
+            border: 1px solid var(--color-card-border);
+            margin-bottom: var(--space-12);
+        }
+
+        .release-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-8);
+        }
+
+        .release-name {
+            font-weight: var(--font-weight-bold);
+        }
+
+        .release-dates {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="widget-container">
+        <div class="widget-header">
+            <div class="widget-title">🚀 Productboard Integration</div>
+            <div class="widget-subtitle">Manage features, roadmaps, and product insights from Zoho Cliq</div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="home">🏠 Home</button>
+            <button class="tab-button" data-tab="features">✨ Features</button>
+            <button class="tab-button" data-tab="roadmaps">🗺️ Roadmaps</button>
+            <button class="tab-button" data-tab="help">❓ Help</button>
+            <button class="tab-button" data-tab="settings">⚙️ Settings</button>
+        </div>
+
+        <!-- HOME TAB -->
+        <div class="tab-content active" id="home">
+            <div class="content-section">
+                <h2 class="section-title">👋 Welcome Back!</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-24);">Here's a quick overview of your product management activities.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">✨</div>
+                        <div class="stat-value" id="total-features">12</div>
+                        <div class="stat-label">Total Features</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚀</div>
+                        <div class="stat-value" id="active-releases">3</div>
+                        <div class="stat-label">Active Releases</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-value" id="completion-rate">42%</div>
+                        <div class="stat-label">Completion Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💚</div>
+                        <div class="stat-value" id="health-score">🟡</div>
+                        <div class="stat-label">Health Score</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">⚡ Quick Actions</h2>
+                <div class="action-buttons">
+                    <button class="action-btn" id="btn-productboard">📋 Productboard Features</button>
+                    <button class="action-btn" id="btn-prioritize">⭐ Prioritize Features</button>
+                    <button class="action-btn" id="btn-release">🚀 Release Progress</button>
+                    <button class="action-btn" id="btn-insights">📊 Insights Data</button>
+                </div>
+
+                <div id="action-content" class="hidden"></div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">💬 Message Actions</h2>
+                <div class="message-action-buttons">
+                    <button class="msg-action-btn" id="msg-add-feature">🎁 Add Feature</button>
+                    <button class="msg-action-btn" id="msg-add-task">✅ Add Task</button>
+                </div>
+            </div>
+
+            <div class="timestamp" id="last-updated">Last updated: Loading...</div>
+        </div>
+
+        <!-- FEATURES TAB -->
+        <div class="tab-content" id="features">
+            <div class="content-section">
+                <h2 class="section-title">➕ Add New Feature</h2>
+                <form id="add-feature-form">
+                    <div class="form-group">
+                        <label class="form-label" for="feature-title">Feature Title *</label>
+                        <input type="text" id="feature-title" class="form-input" placeholder="Enter feature title" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="feature-status">Status *</label>
+                        <select id="feature-status" class="form-select" required>
+                            <option value="new">🆕 New</option>
+                            <option value="planned">📋 Planned</option>
+                            <option value="in_progress">⚙️ In Progress</option>
+                            <option value="completed">✅ Completed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="feature-owner">Owner</label>
+                        <input type="email" id="feature-owner" class="form-input" placeholder="owner@company.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="feature-parent">Parent ID</label>
+                        <input type="text" id="feature-parent" class="form-input" placeholder="Productboard board ID">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submit-feature-btn">
+                        <span id="submit-text">Add Feature</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">📋 Feature List</h2>
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" id="feature-search" placeholder="Search features...">
+                </div>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="new">🆕 New</button>
+                    <button class="filter-btn" data-filter="planned">📋 Planned</button>
+                    <button class="filter-btn" data-filter="in_progress">⚙️ In Progress</button>
+                    <button class="filter-btn" data-filter="completed">✅ Completed</button>
+                </div>
+                <div class="feature-list" id="feature-list"></div>
+            </div>
+        </div>
+
+        <!-- ROADMAPS TAB -->
+        <div class="tab-content" id="roadmaps">
+            <div class="content-section">
+                <h2 class="section-title">🗺️ Roadmap Views</h2>
+                <div class="roadmap-section">
+                    <div class="roadmap-card">
+                        <div class="roadmap-icon">📍</div>
+                        <div class="roadmap-title">Timeline Roadmap</div>
+                        <div class="roadmap-desc">View your features and releases in a timeline format to understand the project timeline and dependencies.</div>
+                        <button class="btn btn-primary" onclick="window.open('https://productboard.com/roadmap/timeline', '_blank')">Open Timeline View</button>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="roadmap-icon">🎴</div>
+                        <div class="roadmap-title">Kanban Roadmap</div>
+                        <div class="roadmap-desc">Organize your features in a Kanban board format with customizable columns and workflow stages.</div>
+                        <button class="btn btn-primary" onclick="window.open('https://productboard.com/roadmap/kanban', '_blank')">Open Kanban View</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">🚀 Release Progress</h2>
+                <div id="releases-list"></div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">🔥 Features in Development</h2>
+                <div class="feature-list" id="dev-features-list"></div>
+            </div>
+        </div>
+
+        <!-- HELP TAB -->
+        <div class="tab-content" id="help">
+            <div class="content-section">
+                <h2 class="section-title">📚 Available Commands</h2>
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" id="help-search" placeholder="Search commands and help...">
+                </div>
+                <div class="command-list" id="command-list"></div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">💬 Message Actions</h2>
+                <div class="command-list">
+                    <div class="command-item">
+                        <div class="command-info">
+                            <div class="command-name">🎁 Add Feature</div>
+                            <div class="command-desc">Right-click on any message in Cliq and select "Add Feature" to create a new feature in Productboard with the message content.</div>
+                        </div>
+                    </div>
+                    <div class="command-item">
+                        <div class="command-info">
+                            <div class="command-name">✅ Add Task</div>
+                            <div class="command-desc">Right-click on any message and select "Add Task" to create a task in Productboard. The message content will be used as the task description.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">🚀 Quick Start Guide</h2>
+                <div style="line-height: 1.8;">
+                    <p style="margin-bottom: var(--space-16);"><strong>1. Getting Started:</strong> Use the Home tab to get a quick overview of your product management activities.</p>
+                    <p style="margin-bottom: var(--space-16);"><strong>2. Managing Features:</strong> Navigate to the Features tab to add new features or view existing ones.</p>
+                    <p style="margin-bottom: var(--space-16);"><strong>3. Viewing Roadmaps:</strong> Check the Roadmaps tab to access your timeline and Kanban views.</p>
+                    <p style="margin-bottom: var(--space-16);"><strong>4. Using Commands:</strong> Type commands in Cliq chat to quickly access Productboard features.</p>
+                    <p style="margin-bottom: var(--space-16);"><strong>5. Configuration:</strong> Visit the Settings tab to customize your widget preferences.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">❓ Frequently Asked Questions</h2>
+                <div style="line-height: 1.8;">
+                    <p style="margin-bottom: var(--space-16);"><strong>Q: How do I sync data with Productboard?</strong><br>
+                    A: The widget automatically syncs with Productboard. Use the refresh button or commands to manually update data.</p>
+                    <p style="margin-bottom: var(--space-16);"><strong>Q: Can I customize the status options?</strong><br>
+                    A: Status options are configured in your Productboard settings. Changes there will reflect in the widget.</p>
+                    <p style="margin-bottom: var(--space-16);"><strong>Q: How do I get support?</strong><br>
+                    A: Visit the Settings tab for support information or contact your Productboard administrator.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SETTINGS TAB -->
+        <div class="tab-content" id="settings">
+            <div class="content-section">
+                <h2 class="section-title">👤 Account Information</h2>
+                <div class="settings-row">
+                    <div>
+                        <div class="settings-label">Subscription Status</div>
+                        <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-4);">Premium Plan</div>
+                    </div>
+                    <span class="status-badge status-completed">✅ Active</span>
+                </div>
+                <div class="settings-row">
+                    <div>
+                        <div class="settings-label">API Connection</div>
+                        <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-4);">Connected to Productboard</div>
+                    </div>
+                    <span class="status-badge status-completed">🟢 Connected</span>
+                </div>
+                <div class="settings-row">
+                    <div>
+                        <div class="settings-label">Last Sync</div>
+                        <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-4);" id="last-sync-time">Just now</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">🔧 Preferences</h2>
+                <div class="settings-row">
+                    <div>
+                        <div class="settings-label">Enable Notifications</div>
+                        <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-4);">Get notified about feature updates</div>
+                    </div>
+                    <div class="toggle-switch active" id="notifications-toggle">
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+                <div class="settings-row">
+                    <div>
+                        <div class="settings-label">Auto Refresh</div>
+                        <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-4);">Automatically refresh data</div>
+                    </div>
+                    <div class="toggle-switch active" id="refresh-toggle">
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+                <div class="settings-row" style="border: none;">
+                    <div>
+                        <div class="settings-label">Refresh Interval</div>
+                        <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-4);">How often to sync data</div>
+                    </div>
+                    <select class="form-select" id="refresh-interval" style="width: 150px;">
+                        <option value="5">5 minutes</option>
+                        <option value="10" selected>10 minutes</option>
+                        <option value="30">30 minutes</option>
+                        <option value="60">1 hour</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">📞 Support &amp; Help</h2>
+                <p style="margin-bottom: var(--space-16); color: var(--color-text-secondary);">Need assistance? We're here to help!</p>
+                <button class="btn btn-primary" style="margin-right: var(--space-12);" onclick="window.open('https://support.productboard.com', '_blank')">📚 Documentation</button>
+                <button class="btn btn-secondary" onclick="window.open('mailto:support@productboard.com', '_blank')">✉️ Contact Support</button>
+            </div>
+        </div>
+
+        <!-- MODALS -->
+        <div class="modal" id="feature-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">🎁 Add Feature from Message</h2>
+                    <button class="close-btn" onclick="closeModal('feature-modal')">&times;</button>
+                </div>
+                <form id="modal-feature-form">
+                    <div class="form-group">
+                        <label class="form-label" for="modal-feature-title">Feature Title *</label>
+                        <input type="text" id="modal-feature-title" class="form-input" placeholder="Enter feature title" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="modal-feature-desc">Description</label>
+                        <textarea id="modal-feature-desc" class="form-textarea" placeholder="Feature description from message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="modal-feature-status">Status *</label>
+                        <select id="modal-feature-status" class="form-select" required>
+                            <option value="new">🆕 New</option>
+                            <option value="planned">📋 Planned</option>
+                            <option value="in_progress">⚙️ In Progress</option>
+                            <option value="completed">✅ Completed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="modal-feature-owner">Owner</label>
+                        <input type="email" id="modal-feature-owner" class="form-input" placeholder="owner@company.com">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Feature</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal" id="task-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">✅ Add Task from Message</h2>
+                    <button class="close-btn" onclick="closeModal('task-modal')">&times;</button>
+                </div>
+                <form id="modal-task-form">
+                    <div class="form-group">
+                        <label class="form-label" for="modal-task-title">Task Title *</label>
+                        <input type="text" id="modal-task-title" class="form-input" placeholder="Enter task title" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="modal-task-content">Task Content</label>
+                        <textarea id="modal-task-content" class="form-textarea" placeholder="Content from message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="modal-task-priority">Priority *</label>
+                        <select id="modal-task-priority" class="form-select" required>
+                            <option value="high">🔴 High</option>
+                            <option value="medium" selected>🟡 Medium</option>
+                            <option value="low">🟢 Low</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="modal-task-section">Section</label>
+                        <input type="text" id="modal-task-section" class="form-input" placeholder="Task section or category">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- TOAST -->
+        <div class="toast" id="toast">
+            <span id="toast-message">Success!</span>
+        </div>
+    </div>
+
+    <script>
+        // State management (using JavaScript variables instead of localStorage)
+        let appState = {
+            features: [
+                { id: 1, name: "Dark Mode Support", type: "UI Enhancement", status: "completed", owner: "john@company.com", link: "https://productboard.com/feature/1" },
+                { id: 2, name: "API Rate Limiting", type: "Backend", status: "in_progress", owner: "jane@company.com", link: "https://productboard.com/feature/2" },
+                { id: 3, name: "User Profiles", type: "Feature", status: "planned", owner: "mike@company.com", link: "https://productboard.com/feature/3" },
+                { id: 4, name: "Mobile App", type: "Product", status: "new", owner: "sarah@company.com", link: "https://productboard.com/feature/4" },
+                { id: 5, name: "OAuth2 Integration", type: "Integration", status: "completed", owner: "john@company.com", link: "https://productboard.com/feature/5" },
+                { id: 6, name: "Advanced Search", type: "Feature", status: "in_progress", owner: "jane@company.com", link: "https://productboard.com/feature/6" },
+                { id: 7, name: "Export Reports", type: "Feature", status: "planned", owner: "mike@company.com", link: "https://productboard.com/feature/7" },
+                { id: 8, name: "Real-time Collaboration", type: "Feature", status: "new", owner: "sarah@company.com", link: "https://productboard.com/feature/8" },
+                { id: 9, name: "Email Templates", type: "Feature", status: "completed", owner: "john@company.com", link: "https://productboard.com/feature/9" },
+                { id: 10, name: "Custom Dashboards", type: "Feature", status: "in_progress", owner: "jane@company.com", link: "https://productboard.com/feature/10" }
+            ],
+            releases: [
+                { name: "Q1 2025 Release", status: "in_progress", start_date: "2025-01-01", end_date: "2025-03-31", progress: 35 },
+                { name: "Q2 2025 Release", status: "planned", start_date: "2025-04-01", end_date: "2025-06-30", progress: 0 },
+                { name: "Beta Launch", status: "released", start_date: "2024-11-15", end_date: "2024-12-01", progress: 100 }
+            ],
+            commands: [
+                { name: "/productboard", desc: "Send messages to Productboard as notes", emoji: "🔗" },
+                { name: "/prioritize", desc: "Manage and organize feature priorities", emoji: "⭐" },
+                { name: "/insights", desc: "Dive deep into feature analytics", emoji: "📈" },
+                { name: "/releaseprogress", desc: "Track release timelines", emoji: "🚀" },
+                { name: "/timelineroadmap", desc: "View timeline of features", emoji: "🗓️" },
+                { name: "/kanbanroadmap", desc: "Kanban board format", emoji: "📌" },
+                { name: "/help", desc: "View help and documentation", emoji: "❓" }
+            ],
+            currentFilter: 'all',
+            settings: {
+                notifications: true,
+                autoRefresh: true,
+                refreshInterval: 10
+            }
+        };
+
+        // Tab switching
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+                
+                // Load content when tab is opened
+                if (tabId === 'features') {
+                    renderFeatures();
+                } else if (tabId === 'roadmaps') {
+                    renderReleases();
+                    renderDevFeatures();
+                } else if (tabId === 'help') {
+                    renderCommands();
+                }
+            });
+        });
+
+        // Render features
+        function renderFeatures(filterStatus = appState.currentFilter, searchTerm = '') {
+            const featureList = document.getElementById('feature-list');
+            let features = appState.features;
+            
+            // Apply filter
+            if (filterStatus !== 'all') {
+                features = features.filter(f => f.status === filterStatus);
+            }
+            
+            // Apply search
+            if (searchTerm) {
+                features = features.filter(f => 
+                    f.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    f.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    f.owner.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+            
+            if (features.length === 0) {
+                featureList.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">🔍</div>
+                        <div>No features found</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            featureList.innerHTML = features.map(feature => `
+                <div class="feature-item">
+                    <div class="feature-info">
+                        <div class="feature-name">${feature.name}</div>
+                        <div class="feature-meta">
+                            <span>Type: ${feature.type}</span>
+                            <span class="status-badge status-${feature.status}">${getStatusEmoji(feature.status)} ${formatStatus(feature.status)}</span>
+                            <span>Owner: ${feature.owner}</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" onclick="window.open('${feature.link}', '_blank')">View</button>
+                </div>
+            `).join('');
+        }
+
+        function getStatusEmoji(status) {
+            const emojis = {
+                'new': '🆕',
+                'planned': '📋',
+                'in_progress': '⚙️',
+                'completed': '✅'
+            };
+            return emojis[status] || '📌';
+        }
+
+        function formatStatus(status) {
+            return status.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        }
+
+        // Filter buttons
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                appState.currentFilter = filter;
+                renderFeatures(filter, document.getElementById('feature-search').value);
+            });
+        });
+
+        // Search
+        document.getElementById('feature-search').addEventListener('input', (e) => {
+            renderFeatures(appState.currentFilter, e.target.value);
+        });
+
+        // Add feature form
+        document.getElementById('add-feature-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-feature-btn');
+            const submitText = document.getElementById('submit-text');
+            
+            submitBtn.disabled = true;
+            submitText.innerHTML = '<span class="spinner"></span> Adding...';
+            
+            setTimeout(() => {
+                const newFeature = {
+                    id: appState.features.length + 1,
+                    name: document.getElementById('feature-title').value,
+                    type: 'Feature',
+                    status: document.getElementById('feature-status').value,
+                    owner: document.getElementById('feature-owner').value || 'unassigned@company.com',
+                    link: `https://productboard.com/feature/${appState.features.length + 1}`
+                };
+                
+                appState.features.unshift(newFeature);
+                renderFeatures();
+                updateStats();
+                
+                showToast('Feature added successfully!', 'success');
+                
+                document.getElementById('add-feature-form').reset();
+                submitBtn.disabled = false;
+                submitText.textContent = 'Add Feature';
+            }, 1000);
+        });
+
+        // Action buttons
+        document.getElementById('btn-productboard').addEventListener('click', function() {
+            toggleActionButton(this, 'productboard');
+        });
+
+        document.getElementById('btn-prioritize').addEventListener('click', function() {
+            toggleActionButton(this, 'prioritize');
+        });
+
+        document.getElementById('btn-release').addEventListener('click', function() {
+            toggleActionButton(this, 'release');
+        });
+
+        document.getElementById('btn-insights').addEventListener('click', function() {
+            toggleActionButton(this, 'insights');
+        });
+
+        function toggleActionButton(button, type) {
+            const actionContent = document.getElementById('action-content');
+            const allButtons = document.querySelectorAll('.action-btn');
+            
+            // If this button is already active, deactivate it
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
+                actionContent.classList.add('hidden');
+                return;
+            }
+            
+            // Deactivate all buttons
+            allButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Activate this button
+            button.classList.add('active');
+            actionContent.classList.remove('hidden');
+            
+            // Show content based on type
+            if (type === 'productboard') {
+                showProductboardFeatures();
+            } else if (type === 'prioritize') {
+                showPrioritizedFeatures();
+            } else if (type === 'release') {
+                showReleaseProgress();
+            } else if (type === 'insights') {
+                showInsights();
+            }
+        }
+
+        function showProductboardFeatures() {
+            const actionContent = document.getElementById('action-content');
+            const topFeatures = appState.features.slice(0, 5);
+            
+            actionContent.innerHTML = `
+                <div style="margin-top: var(--space-20);">
+                    <h3 style="margin-bottom: var(--space-16); font-size: var(--font-size-lg);">📋 Recent Features</h3>
+                    <div class="feature-list">
+                        ${topFeatures.map(feature => `
+                            <div class="feature-item">
+                                <div class="feature-info">
+                                    <div class="feature-name">${feature.name}</div>
+                                    <div class="feature-meta">
+                                        <span class="status-badge status-${feature.status}">${getStatusEmoji(feature.status)} ${formatStatus(feature.status)}</span>
+                                        <span>${feature.type}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function showPrioritizedFeatures() {
+            const actionContent = document.getElementById('action-content');
+            const prioritized = appState.features
+                .filter(f => f.status === 'in_progress' || f.status === 'planned')
+                .slice(0, 5);
+            
+            actionContent.innerHTML = `
+                <div style="margin-top: var(--space-20);">
+                    <h3 style="margin-bottom: var(--space-16); font-size: var(--font-size-lg);">⭐ Prioritized Features</h3>
+                    <div class="feature-list">
+                        ${prioritized.map((feature, index) => `
+                            <div class="feature-item">
+                                <div style="display: flex; align-items: center; gap: var(--space-16); flex: 1;">
+                                    <div style="font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); color: var(--color-primary);">#${index + 1}</div>
+                                    <div class="feature-info">
+                                        <div class="feature-name">${feature.name}</div>
+                                        <div class="feature-meta">
+                                            <span class="status-badge status-${feature.status}">${getStatusEmoji(feature.status)} ${formatStatus(feature.status)}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function showReleaseProgress() {
+            const actionContent = document.getElementById('action-content');
+            const activeReleases = appState.releases.filter(r => r.status === 'in_progress');
+            
+            actionContent.innerHTML = `
+                <div style="margin-top: var(--space-20);">
+                    <h3 style="margin-bottom: var(--space-16); font-size: var(--font-size-lg);">🚀 Active Releases</h3>
+                    ${activeReleases.map(release => `
+                        <div class="release-item">
+                            <div class="release-header">
+                                <div class="release-name">${release.name}</div>
+                                <span class="status-badge status-in_progress">⚙️ In Progress</span>
+                            </div>
+                            <div class="release-dates">${release.start_date} to ${release.end_date}</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${release.progress}%;"></div>
+                            </div>
+                            <div style="text-align: right; margin-top: var(--space-4); font-size: var(--font-size-sm); color: var(--color-text-secondary);">${release.progress}% Complete</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function showInsights() {
+            const actionContent = document.getElementById('action-content');
+            const stats = calculateStats();
+            
+            actionContent.innerHTML = `
+                <div style="margin-top: var(--space-20);">
+                    <h3 style="margin-bottom: var(--space-16); font-size: var(--font-size-lg);">📊 Product Insights</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">🆕</div>
+                            <div class="stat-value">${stats.new}</div>
+                            <div class="stat-label">New Features</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📋</div>
+                            <div class="stat-value">${stats.planned}</div>
+                            <div class="stat-label">Planned</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⚙️</div>
+                            <div class="stat-value">${stats.in_progress}</div>
+                            <div class="stat-label">In Progress</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-value">${stats.completed}</div>
+                            <div class="stat-label">Completed</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function calculateStats() {
+            return {
+                new: appState.features.filter(f => f.status === 'new').length,
+                planned: appState.features.filter(f => f.status === 'planned').length,
+                in_progress: appState.features.filter(f => f.status === 'in_progress').length,
+                completed: appState.features.filter(f => f.status === 'completed').length
+            };
+        }
+
+        // Message actions
+        document.getElementById('msg-add-feature').addEventListener('click', () => {
+            openModal('feature-modal');
+        });
+
+        document.getElementById('msg-add-task').addEventListener('click', () => {
+            openModal('task-modal');
+        });
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Modal forms
+        document.getElementById('modal-feature-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const newFeature = {
+                id: appState.features.length + 1,
+                name: document.getElementById('modal-feature-title').value,
+                type: 'Feature',
+                status: document.getElementById('modal-feature-status').value,
+                owner: document.getElementById('modal-feature-owner').value || 'unassigned@company.com',
+                link: `https://productboard.com/feature/${appState.features.length + 1}`
+            };
+            
+            appState.features.unshift(newFeature);
+            updateStats();
+            
+            showToast('Feature added from message!', 'success');
+            closeModal('feature-modal');
+            document.getElementById('modal-feature-form').reset();
+        });
+
+        document.getElementById('modal-task-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            showToast('Task added successfully!', 'success');
+            closeModal('task-modal');
+            document.getElementById('modal-task-form').reset();
+        });
+
+        // Close modal on outside click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Render releases
+        function renderReleases() {
+            const releasesList = document.getElementById('releases-list');
+            
+            releasesList.innerHTML = appState.releases.map(release => {
+                let statusBadge = '';
+                if (release.status === 'in_progress') {
+                    statusBadge = '<span class="status-badge status-in_progress">⚙️ In Progress</span>';
+                } else if (release.status === 'planned') {
+                    statusBadge = '<span class="status-badge status-planned">📋 Planned</span>';
+                } else {
+                    statusBadge = '<span class="status-badge status-completed">✅ Released</span>';
+                }
+                
+                return `
+                    <div class="release-item">
+                        <div class="release-header">
+                            <div class="release-name">${release.name}</div>
+                            ${statusBadge}
+                        </div>
+                        <div class="release-dates">${release.start_date} to ${release.end_date}</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${release.progress}%;"></div>
+                        </div>
+                        <div style="text-align: right; margin-top: var(--space-4); font-size: var(--font-size-sm); color: var(--color-text-secondary);">${release.progress}% Complete</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderDevFeatures() {
+            const devFeaturesList = document.getElementById('dev-features-list');
+            const devFeatures = appState.features.filter(f => f.status === 'in_progress');
+            
+            if (devFeatures.length === 0) {
+                devFeaturesList.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">✨</div>
+                        <div>No features currently in development</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            devFeaturesList.innerHTML = devFeatures.map(feature => `
+                <div class="feature-item">
+                    <div class="feature-info">
+                        <div class="feature-name">${feature.name}</div>
+                        <div class="feature-meta">
+                            <span>Type: ${feature.type}</span>
+                            <span>Owner: ${feature.owner}</span>
+                        </div>
+                    </div>
+                    <span class="status-badge status-in_progress">⚙️ In Progress</span>
+                </div>
+            `).join('');
+        }
+
+        // Render commands
+        function renderCommands() {
+            const commandList = document.getElementById('command-list');
+            
+            commandList.innerHTML = appState.commands.map(command => `
+                <div class="command-item">
+                    <div class="command-info">
+                        <div class="command-name">${command.emoji} ${command.name}</div>
+                        <div class="command-desc">${command.desc}</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard('${command.name}')">Copy</button>
+                </div>
+            `).join('');
+        }
+
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            
+            showToast('Command copied to clipboard!', 'success');
+        }
+
+        // Help search
+        document.getElementById('help-search').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const commandItems = document.querySelectorAll('#command-list .command-item');
+            
+            commandItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchTerm) ? 'flex' : 'none';
+            });
+        });
+
+        // Settings toggles
+        document.getElementById('notifications-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            appState.settings.notifications = this.classList.contains('active');
+        });
+
+        document.getElementById('refresh-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            appState.settings.autoRefresh = this.classList.contains('active');
+        });
+
+        document.getElementById('refresh-interval').addEventListener('change', function() {
+            appState.settings.refreshInterval = parseInt(this.value);
+        });
+
+        // Toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            toast.className = 'toast active';
+            
+            if (type === 'error') {
+                toast.classList.add('error');
+            }
+            
+            setTimeout(() => {
+                toast.classList.remove('active');
+            }, 3000);
+        }
+
+        // Update stats
+        function updateStats() {
+            const stats = calculateStats();
+            const total = stats.new + stats.planned + stats.in_progress + stats.completed;
+            const completionRate = total > 0 ? Math.round((stats.completed / total) * 100) : 0;
+            
+            document.getElementById('total-features').textContent = total;
+            document.getElementById('completion-rate').textContent = completionRate + '%';
+            
+            // Update health score
+            let healthScore = '🟢';
+            if (completionRate < 30) {
+                healthScore = '🔴';
+            } else if (completionRate < 60) {
+                healthScore = '🟡';
+            }
+            document.getElementById('health-score').textContent = healthScore;
+        }
+
+        // Update timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+            const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            
+            document.getElementById('last-updated').textContent = `Last updated: ${dateStr} at ${timeStr}`;
+            document.getElementById('last-sync-time').textContent = 'Just now';
+        }
+
+        // Initialize
+        function init() {
+            renderFeatures();
+            updateStats();
+            updateTimestamp();
+            
+            // Update timestamp every minute
+            setInterval(updateTimestamp, 60000);
+        }
+
+        // Run on load
+        init();
+    </script>
+</body>
+</html>
